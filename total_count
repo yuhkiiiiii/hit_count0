@@ -1,0 +1,59 @@
+print("・食べ物")
+print(" ハンバーガー 500円\n ホットドッグ 450円\n おにぎり 200円\n フライドポテト 400円")
+print()
+print("・飲み物")
+print(" コーラ 250円\n オレンジジュース 250円\n ジンジャーエール 250円\n ウーロン茶 200円")
+print()
+print("上記のメニューから1つずつ入力しそのたびにEnterを押してください。（全て選び終わったら何も入力せずにEnter）")
+
+x = []
+total_price = 0
+
+while True :
+    a = input()
+    if a == "" :
+        break
+    elif a == "ハンバーガー" :
+        total_price += 500
+        x.append(a)
+    elif a == "ホットドッグ" :
+        total_price += 450
+        x.append(a)
+    elif a == "おにぎり" :
+        total_price += 200
+        x.append(a)
+    elif a == "フライドポテト" :
+        total_price += 400
+        x.append(a)
+    elif a == "コーラ" :
+        total_price += 250
+        x.append(a)
+    elif a == "オレンジジュース" :
+        total_price += 250
+        x.append(a)
+    elif a == "ジンジャーエール" :
+        total_price += 250
+        x.append(a)
+    elif a == "ウーロン茶" or a == "烏龍茶":
+        total_price += 200
+        x.append(a)
+    else :
+        print("（メニュー通りに入力してください）")
+
+print(f"購入する商品{x}")
+print()
+
+while True :
+    b = input("店内？ or 持ち帰り？ :")
+    if b == "店内" :
+        total_price *= 1.10
+        print()
+        print(f"消費税10%を加算して合計{int(total_price)}円です")
+        break
+    elif b == "持ち帰り" :
+        total_price *= 1.08
+        print()
+        print(f"消費税8%を加算して合計{int(total_price)}円です")
+        break
+    else :
+        print("(指示通り入力してください)")        
