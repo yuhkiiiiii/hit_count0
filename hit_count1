@@ -1,0 +1,34 @@
+import random
+
+model_answer = []
+hit_count = 0
+blow_count = 0
+answer_count = 0
+
+print("数字当てゲームStart!!!")
+print()
+
+for i in range(4) :
+    model_answer.append(random.randint(0, 9))
+
+while True :
+    answer_count += 1
+    print(f"【{answer_count}回目の解答】")
+    answer = list(map(int, input("4つの数字をそれぞれに間に空白を入れて入力してください:").split()))
+
+    for j in range(4) :
+        for k in range(4) :
+            if j == k and model_answer[j] == answer[k] :
+                hit_count += 1
+            elif j != k and model_answer[j] == answer[k] :
+                blow_count += 1
+
+    print(f"{answer}は【{hit_count}H, {blow_count}B】")
+    print()
+
+    if hit_count == 4 :
+        print(f"正解です！正解するまでに{answer_count}回かかりました！")
+        break
+
+    hit_count = 0
+    blow_count = 0
